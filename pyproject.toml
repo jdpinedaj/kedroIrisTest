@@ -1,6 +1,6 @@
 [tool.kedro]
-package_name = "testiris"
-project_name = "testIris"
+package_name = "irist"
+project_name = "irisT"
 project_version = "0.17.5"
 
 [tool.isort]
@@ -14,4 +14,4 @@ known_third_party = "kedro"
 [tool.pytest.ini_options]
 addopts = """
 --cov-report term-missing \
---cov src/testiris -ra"""
+--cov src/irist -ra"""

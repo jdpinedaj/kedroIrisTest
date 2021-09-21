@@ -29,7 +29,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# testiris documentation build
+# irist documentation build
 # configuration file, created by sphinx-quickstart.
 #
 # This file is execfile()d with the current directory set to its
@@ -49,11 +49,11 @@ import re
 
 from kedro.framework.cli.utils import find_stylesheets
 from recommonmark.transform import AutoStructify
-from testiris import __version__ as release
+from irist import __version__ as release
 
 # -- Project information -----------------------------------------------------
 
-project = "testiris"
+project = "irist"
 copyright = "2021, QuantumBlack Visual Analytics Limited"
 author = "QuantumBlack"
 
@@ -148,7 +148,7 @@ html_show_sourcelink = False
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "testirisdoc"
+htmlhelp_basename = "iristdoc"
 
 # -- Options for LaTeX output ------------------------------------------------
 
@@ -176,8 +176,8 @@ latex_elements = {
 latex_documents = [
     (
         master_doc,
-        "testiris.tex",
-        "testiris Documentation",
+        "irist.tex",
+        "irist Documentation",
         "QuantumBlack",
         "manual",
     )
@@ -190,8 +190,8 @@ latex_documents = [
 man_pages = [
     (
         master_doc,
-        "testiris",
-        "testiris Documentation",
+        "irist",
+        "irist Documentation",
         [author],
         1,
     )
@@ -205,11 +205,11 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        "testiris",
-        "testiris Documentation",
+        "irist",
+        "irist Documentation",
         author,
-        "testiris",
-        "Project testiris codebase.",
+        "irist",
+        "Project irist codebase.",
         "Data-Science",
     )
 ]

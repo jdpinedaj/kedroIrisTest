@@ -26,29 +26,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""
-This module contains an example test.
+"""Project hooks."""
+from typing import Any, Dict, Iterable, Optional
 
-Tests should be placed in ``src/tests``, in modules that mirror your
-project's structure, and in files named test_*.py. They are simply functions
-named ``test_*`` which test a unit of logic.
-
-To run the tests, run ``kedro test``.
-"""
-from pathlib import Path
-
-import pytest
-from kedro.framework.context import KedroContext
+from kedro.config import ConfigLoader
+from kedro.framework.hooks import hook_impl
+from kedro.io import DataCatalog
+from kedro.versioning import Journal
 
 
-@pytest.fixture
-def project_context():
-    return KedroContext(package_name="irist", project_path=Path.cwd())
+class ProjectHooks:
+    @hook_impl
+    def register_config_loader(
+        self, conf_paths: Iterable[str], env: str, extra_params: Dict[str, Any]
+    ) -> ConfigLoader:
+        return ConfigLoader(conf_paths)
 
-
-# The tests below are here for the demonstration purpose
-# and should be replaced with the ones testing the project
-# functionality
-class TestProjectContext:
-    def test_package_name(self, project_context):
-        assert project_context.package_name == "irist"
+    @hook_impl
+    def register_catalog(
+        self,
+        catalog: Optional[Dict[str, Dict[str, Any]]],
+        credentials: Dict[str, Dict[str, Any]],
+        load_versions: Dict[str, str],
+        save_version: str,
+        journal: Journal,
+    ) -> DataCatalog:
+        return DataCatalog.from_config(
+            catalog, credentials, load_versions, save_version, journal
+        )
